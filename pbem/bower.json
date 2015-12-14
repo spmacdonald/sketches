@@ -1,0 +1,9 @@
+{
+  "name": "pbem",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "dcjs": "~1.7.5"
+  },
+  "devDependencies": {}
+}

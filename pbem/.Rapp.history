@@ -1,0 +1,120 @@
+o <- fread("prices.csv")
+o <- fread("outages.csv")
+library(data.table)
+o
+o <- fread("outages.csv")
+o
+o[,IDate(d)]
+o[,as.IDate(d)]
+o[,d:=as.IDate(d)]
+o
+o[,sum(num_hours), .(year(d), month(d))]
+o
+o[order(d)
+]
+x<-o[order(d)]
+x[,sum(num_hours), .(year(d), month(d))]
+dcast(x[,sum(num_hours), .(year(d), month(d))], month~year)
+log(2)/.25
+log(2)
+shapiro.test(rnorm(100, mean = 5, sd = 3))
+shapiro.test(runif(100, min = 2, max = 4))
+library(urca)
+?ur.df
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=3, type='trend')#
+summary(lc.df)
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='drift')#
+summary(lc.df)
+lc.df@teststat
+lc.df@teststat[1]
+lc.df@teststat[2]
+lc.df@cval[1,1]
+lc.df@cval[1,2]
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='drift')#
+summary(lc.df)
+?ur.df
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=6, type='drift')#
+summary(lc.df)
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='drift')#
+summary(lc.df)
+?ur.df
+ur.df
+?ca.jo
+data(denmark)#
+sjd <- denmark[, c("LRM", "LRY", "IBO", "IDE")]#
+sjd.vecm <- ca.jo(sjd, ecdet = "none", type="eigen", K=2, spec="transitory")#
+summary(sjd.vecm)
+data(denmark)#
+sjd <- denmark[, c("LRM", "LRY")]#
+sjd.vecm <- ca.jo(sjd, ecdet = "none", type="eigen", K=2, spec="transitory")#
+summary(sjd.vecm)
+sjd.vecm$rlm
+sjd.vecm
+cajorls(sjd.vecm, r=1)
+summary(cajorls(sjd.vecm, r=1))
+summary(cajorls(sjd.vecm, r=1)$rlm)
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='drift')#
+summary(lc.df)
+library(urca)
+?ur.df
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=3, type='trend')#
+summary(lc.df)
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='drift')#
+summary(lc.df)
+lc.df
+lc.df@cval
+lc.df@cval[2]
+lc.df@cval[1]
+lc.df@cval[2,1]
+lc.df@cval[2,2]
+lc.df@cval[2]
+lc.df@teststat[2]
+data(Raotbl3)#
+attach(Raotbl3)#
+lc.df <- ur.df(y=lc, lags=1, type='trend')#
+summary(lc.df)
+lc.df@cval[2]
+lc.df@cval[3]
+lc.df@cval[1,1]
+lc.df@cval[1,3]
+lc.df@cval[2,1]
+lc.df@cval[3,1]
+lc.df@cval[1]
+lc.df@cval[2]
+lc.df@cval[3]
+data.table
+library(data.table)
+dt <- fread("http://mis.nyiso.com/public/csv/isolf/20151127isolf.csv")
+dt
+dt[plot(Longil)]
+dt[plot(Longil, type="l")]
+runif(10)
+hist(runif(1000))
+shapiro.test(runif(1000))
+shapiro.test(rnorm(1000))
+library(data.table)
+d<-fread("nyiso_small.csv")
+d
+hist(d[, da_lbmp])
+hist(d[, da_lbmp], breaks="FD")
+hist(d[, da_lbmp], breaks="scott")
+hist(d[, da_lbmp])
+hist(d[, log(da_lbmp)])
+hist(d[, da_lbmp])
+hist(d[, rt_lbmp])

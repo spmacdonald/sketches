@@ -1,0 +1,25 @@
+{
+  "name": "pbem",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "browserify main.js -t browserify-shim | uglifyjs > app.js",
+    "watch": "watchify scripts/main.js -o app.js"
+  },
+  "dependencies": {
+    "d3": "^3.5.10",
+    "dc": "latest",
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.10"
+  },
+  "devDependencies": {
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-require": "^1.1.2",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.1.1",
+    "watchify": "latest"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4"
+  }
+}
