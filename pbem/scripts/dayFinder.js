@@ -1,9 +1,10 @@
+'use strict';
+
 var d3 = require('d3');
 var dc = require('dc');
 var nyisoGrouper = require('./nyisoGrouper');
 
-(function() {
-  'use strict';
+function DayFinder() {
 
   var zoneChart = dc.barChart('#zone-container');
   var monthChart = dc.barChart('#month-container');
@@ -11,7 +12,7 @@ var nyisoGrouper = require('./nyisoGrouper');
   var daChart = dc.barChart('#da-container');
   var rtChart = dc.barChart('#rt-container');
   var dateChart = dc.lineChart('#date-container');
-  var dataTable = dc.dataTable('#table-container')
+  var dataTable = dc.dataTable('#table-container');
 
   function type(d) {
     d3.keys(d).forEach(function(k) {
@@ -179,4 +180,7 @@ var nyisoGrouper = require('./nyisoGrouper');
 
   });
 
-})();
+}
+
+module.exports = DayFinder;
+// }());

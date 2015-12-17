@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.pbem = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function(exports){
 crossfilter.version = "1.3.12";
 function crossfilter_identity(d) {
@@ -10956,6 +10956,8 @@ module.exports = require("./crossfilter").crossfilter;
   if (typeof define === "function" && define.amd) this.d3 = d3, define(d3); else if (typeof module === "object" && module.exports) module.exports = d3; else this.d3 = d3;
 }();
 },{}],4:[function(require,module,exports){
+(function (global){
+; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
  *  dc 2.0.0-beta.23
  *  http://dc-js.github.io/dc.js/
@@ -21016,8 +21018,8 @@ return dc;}
     if(typeof define === "function" && define.amd) {
         define(["d3", "crossfilter"], _dc);
     } else if(typeof module === "object" && module.exports) {
-        var _d3 = require('d3');
-        var _crossfilter = require('crossfilter');
+        var _d3 = __browserify_shim_require__('d3');
+        var _crossfilter = __browserify_shim_require__('crossfilter');
         // When using npm + browserify, 'crossfilter' is a function,
         // since package.json specifies index.js as main function, and it
         // does special handling. When using bower + browserify,
@@ -21034,7 +21036,12 @@ return dc;}
 )();
 
 
-},{"crossfilter":2,"d3":3}],5:[function(require,module,exports){
+; browserify_shim__define__module__export__(typeof dc != "undefined" ? dc : window.dc);
+
+}).call(global, undefined, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],5:[function(require,module,exports){
 // Import DC and dependencies
 
 d3 = require("d3");
@@ -21042,12 +21049,13 @@ crossfilter = require("crossfilter");
 module.exports = require("./dc");
 
 },{"./dc":4,"crossfilter":2,"d3":3}],6:[function(require,module,exports){
+'use strict';
+
 var d3 = require('d3');
 var dc = require('dc');
 var nyisoGrouper = require('./nyisoGrouper');
 
-(function() {
-  'use strict';
+function DayFinder() {
 
   var zoneChart = dc.barChart('#zone-container');
   var monthChart = dc.barChart('#month-container');
@@ -21055,7 +21063,7 @@ var nyisoGrouper = require('./nyisoGrouper');
   var daChart = dc.barChart('#da-container');
   var rtChart = dc.barChart('#rt-container');
   var dateChart = dc.lineChart('#date-container');
-  var dataTable = dc.dataTable('#table-container')
+  var dataTable = dc.dataTable('#table-container');
 
   function type(d) {
     d3.keys(d).forEach(function(k) {
@@ -21223,9 +21231,19 @@ var nyisoGrouper = require('./nyisoGrouper');
 
   });
 
-})();
+}
 
-},{"./nyisoGrouper":7,"d3":3,"dc":5}],7:[function(require,module,exports){
+module.exports = DayFinder;
+// }());
+
+},{"./nyisoGrouper":8,"d3":3,"dc":5}],7:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+  dayFinder: require('./dayFinder')
+};
+
+},{"./dayFinder":6}],8:[function(require,module,exports){
 'use strict';
 
 var between = function(d, min, max) {
@@ -21261,4 +21279,5 @@ var nyisoPriceAggregation = function(d) {
 exports.nyisoPriceLabels = nyisoPriceLabels;
 exports.nyisoPriceAggregation = nyisoPriceAggregation;
 
-},{}]},{},[6]);
+},{}]},{},[7])(7)
+});
